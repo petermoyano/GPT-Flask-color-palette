@@ -7,6 +7,34 @@
         <title>Color palette generator</title>
     </head>
     <body>
-        <h1>Hello!!</h1>
+        <h1>Hello to Peter's color palette finder!!</h1>
+        <form id="form">
+            <label for="prompt">
+                <input type="text" name="query" id="prompt" />
+            </label>
+            <button>Submit</button>
+        </form>
+        <script>
+            const form = document.querySelector("#form");
+            console.log(form);
+            form.addEventListener("submit", function (e) {
+                e.preventDefault();
+                const query = form.elements.query.value;
+                console.log("query is: ", query);
+                fetch("/palette", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/x-www-form-urlenconded",
+                    },
+                    body: new URLSearchParams({
+                        query: query,
+                    }),
+                })
+                    .then((response) => response.json())
+                    .then((data) => {
+                        console.log(data);
+                    });
+            });
+        </script>
     </body>
 </html>
