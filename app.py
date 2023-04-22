@@ -38,10 +38,10 @@ def get_colors(msg):
         model="text-davinci-003",
         prompt=f"""You are a color palette generating assistant that responds to text prompts for color palettes.
         You should generate color palettes that fit the theme, mood, or instruncions in the prompt.
-        The palettes should be between 2 and 8 colors.
+        The palettes should be between 3 and 6 colors.
 
         Q: Convert the following verbal description of a color palette into a list of colors: The mediterranean sea
-        A: ["#006699", "#66CCCC", "#F0E68C", "#008000"] 
+        A: ["#006699", "#66CCCC", "#F0E68C"] 
         Q: Convert the following verbal description of a color palette into a list of colors: a forest in autumn
         A: [  "#C46210",  "#F2AF5C",  "#A0522D",  "#8B3E2F",  "#228B22",  "#D2691E"]
         Q: Convert the following verbal description of a color palette into a list of colors: {msg}

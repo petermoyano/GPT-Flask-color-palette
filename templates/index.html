@@ -9,13 +9,27 @@
     </head>
     <style></style>
     <body>
-        <div class="container"></div>
+        <div class="hero">
+            <h1>Peter's color palette generator</h1>
+            <h3>
+                It uses the text-davinci-003 model from OpenAI to generate
+                colors related to your text input. Use inputs that are related
+                to colors...
+            </h3>
+        </div>
         <form id="form">
             <label for="prompt">
-                <input type="text" name="query" id="prompt" />
+                <input
+                    type="text"
+                    name="query"
+                    id="prompt"
+                    placeholder="Try Forest in autumn..."
+                />
             </label>
-            <button class="btn">Submit</button>
+            <button class="btn">Generate</button>
         </form>
+        <div class="container"></div>
+        <script src="helpers.js"></script>
         <script src="app.js"></script>
     </body>
 </html>
