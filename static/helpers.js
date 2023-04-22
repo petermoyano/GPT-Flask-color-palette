@@ -1,5 +1,5 @@
 function getColors() {
-    const query = form.elements.query.value;
+    const query = form.elements.query.value || "Google brand colors";
     fetch("/palette", {
         method: "POST",
         headers: {

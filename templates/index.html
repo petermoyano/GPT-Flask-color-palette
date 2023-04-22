@@ -7,29 +7,37 @@
         <link rel="stylesheet" href="app.css" />
         <title>Color palette generator</title>
     </head>
-    <style></style>
     <body>
-        <div class="hero">
-            <h1>Peter's color palette generator</h1>
-            <h3>
-                It uses the text-davinci-003 model from OpenAI to generate
-                colors related to your text input. Use inputs that are related
-                to colors...
-            </h3>
+        <div class="cont">
+            <div class="hero">
+                <h1>Peter's color palette generator</h1>
+                <h3>
+                    It uses the text-davinci-003 model from OpenAI to generate
+                    colors related to your text input. Use inputs that are
+                    related to colors...
+                </h3>
+            </div>
+            <form id="form">
+                <label for="prompt">
+                    <input
+                        type="text"
+                        name="query"
+                        id="prompt"
+                        placeholder="Google brand colors..."
+                    />
+                </label>
+                <button class="btn">Generate</button>
+            </form>
+            <div class="container"></div>
+            <footer>
+                <h4>
+                    Made while having fun by Pedro Moyano. Checkout my linkedin
+                    if you want to contact me.
+                </h4>
+            </footer>
         </div>
-        <form id="form">
-            <label for="prompt">
-                <input
-                    type="text"
-                    name="query"
-                    id="prompt"
-                    placeholder="Try Forest in autumn..."
-                />
-            </label>
-            <button class="btn">Generate</button>
-        </form>
-        <div class="container"></div>
-        <script src="helpers.js"></script>
-        <script src="app.js"></script>
     </body>
+
+    <script src="helpers.js"></script>
+    <script src="app.js"></script>
 </html>
