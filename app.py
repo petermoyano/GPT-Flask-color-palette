@@ -8,13 +8,12 @@ import json
 config = dotenv_values('.env')
 openai.api_key = config["OPENAI_API_KEY"]
 
-#initialize flask
-app = Flask(__name__, template_folder='templates')
+#initialize flask and indicate static folder's name
+app = Flask(__name__, template_folder='templates', static_url_path='' ,static_folder='static')
 
-#Flask debug toolbar
+#Flask debug toolbar config
 app.config['SECRET_KEY'] = "oh-so-secret"
 debug = DebugToolbarExtension(app)
-
 
 
 ####ROUTES####
@@ -24,17 +23,12 @@ def index():
 
 @app.route("/palette", methods=["POST"])
 def prompt_to_palette( ):
-    print("Started executing!!")
     #extract query from request
     query = request.form.get("query")
-
-    print("This is query!, ", query)
-
 
     #completion request with query
     colors = get_colors (query) #string
     parsedColors = json.loads(colors) 
-    print(parsedColors, type(parsedColors))
 
     return {"colors": parsedColors}
 
@@ -56,11 +50,10 @@ def get_colors(msg):
         max_tokens=500
     )
     if res == None:
-        print("There are no colors!!", colors)
         return 
+    # colors is of type <class 'str'>
     colors = res["choices"][0]["text"]
-    print("typeof colors", type(colors))
-    return colors # <class 'str'>
+    return colors 
 
 # debug mode config
 if __name__ == "__main__":
