@@ -40,11 +40,13 @@ function disableButtonOnSubmit() {
     const btn = btnCollection[0];
     btn.textContent = "Generating...";
     btn.disabled = true;
-    btn.backgroundColor = "#00000";
+    btn.backgroundColor = "#f2f2f2";
 }
 
 function enableButton() {
     const btnCollection = document.getElementsByClassName("btn");
+    const input = document.getElementById("prompt");
+    console.log(input);
     const btn = btnCollection[0];
     btn.disabled = false;
     btn.textContent = "Try again!";

@@ -3,10 +3,12 @@ from flask import Flask, render_template, request
 from flask_debugtoolbar import DebugToolbarExtension
 from dotenv import dotenv_values
 import json
+import os
 
 # Look for variables in .env and return them in config object
-config = dotenv_values('.env')
-openai.api_key = config["OPENAI_API_KEY"]
+# config = dotenv_values('.env')
+OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY')
+openai.api_key = OPENAI_API_KEY
 
 #initialize flask and indicate static folder's name
 app = Flask(__name__, template_folder='templates', static_url_path='' ,static_folder='static')
